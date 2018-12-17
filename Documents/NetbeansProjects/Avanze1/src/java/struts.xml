@@ -1,0 +1,64 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+     <package name="default" extends="struts-default">
+        
+    </package>
+    <package name="actions" namespace="/" extends="struts-default">
+     
+        <action name="ingresar" method="execute" class="actions.LoginAction">
+            <result name="profesor" >menuProfe.jsp</result>
+            <result name="administrador" >menuAdmin.jsp</result>
+            <result name="alumno" >homeAlumno.jsp</result>
+        </action>
+        
+        <action name="CrearCuenta" method="execute" class="actions.InsertAction">
+            <result name="success" >cuentaCreada.jsp</result>
+        </action>
+        
+        <action name="homeAdmin" method="execute" class="actions.MenuAction">
+            <result name="success" >homeAdmin.jsp</result>
+        </action>
+      
+        <action name="createAdmin" method="execute" class="actions.AgregarAction">
+            <result name="success" >homeAdmin.jsp</result>
+        </action>
+        
+        <action name="delete" class="actions.deleteAction" method="execute">
+            <result name="success">deleteCompleted.jsp</result>
+        </action>
+        
+      
+        <action name="edite" class="actions.EditeAction" method="execute">
+            <result name="success">modificar.jsp</result>
+        </action>
+     
+  
+          <action name="cambiarDatos" class="actions.ModifyAction" method="execute">
+            <result name="success">editeCompleted.jsp</result>
+        </action>
+        
+        <action name="homeGrupo" class="actions.grupoAction" method="execute">
+            <result name="success">homeProfe.jsp</result>
+        </action>
+        
+         <action name="createGroup" class="actions.CreateGroup" method="execute">
+            <result name="success">grupoCreado.jsp</result>
+        </action>
+        
+          <action name="deleteGrupo" class="actions.deleteActionGrupo" method="execute">
+            <result name="success">deleteGrupoCompleted.jsp</result>
+        </action>
+        
+      
+        <action name="editeGrupo" class="actions.EditeActionGrupo" method="execute">
+            <result name="success">editadoGrupo.jsp</result>
+        </action>
+        
+        <action name="cambiarGrupo" class="actions.ModifyGrupoAction" method="execute">
+            <result name="success">editeGroupCompleted.jsp</result>
+        </action>
+    </package>
+</struts>

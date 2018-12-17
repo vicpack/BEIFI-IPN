@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-oct-2018 21:01:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Grupo" table="grupo" catalog="avanzeuno" optimistic-lock="version">
+        <id name="idGrupo" type="java.lang.Integer">
+            <column name="idGrupo" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <set name="studentGrupos" table="student_grupo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idGrupo" not-null="true" />
+            </key>
+            <one-to-many class="entity.StudentGrupo" />
+        </set>
+        <set name="teacherGrupos" table="teacher_grupo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idGrupo" not-null="true" />
+            </key>
+            <one-to-many class="entity.TeacherGrupo" />
+        </set>
+        <one-to-one name="exercise" class="entity.Exercise"></one-to-one>
+    </class>
+</hibernate-mapping>

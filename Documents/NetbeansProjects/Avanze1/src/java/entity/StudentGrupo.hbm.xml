@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-oct-2018 21:01:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.StudentGrupo" table="student_grupo" catalog="avanzeuno" optimistic-lock="version">
+        <composite-id name="id" class="entity.StudentGrupoId">
+            <key-property name="idStudent" type="int">
+                <column name="idStudent" />
+            </key-property>
+            <key-property name="idGrupo" type="int">
+                <column name="idGrupo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="grupo" class="entity.Grupo" update="false" insert="false" fetch="select">
+            <column name="idGrupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="student" class="entity.Student" update="false" insert="false" fetch="select">
+            <column name="idStudent" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

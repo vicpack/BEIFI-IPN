@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-oct-2018 21:01:07 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Exercise" table="exercise" catalog="avanzeuno" optimistic-lock="version">
+        <id name="idExercise" type="java.lang.Integer">
+            <column name="idExercise" />
+            <generator class="foreign">
+                <param name="property">grupo</param>
+            </generator>
+        </id>
+        <one-to-one name="grupo" class="entity.Grupo" constrained="true"></one-to-one>
+        <property name="level" type="string">
+            <column name="level" length="2" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="stage" type="string">
+            <column name="stage" length="20000" />
+        </property>
+    </class>
+</hibernate-mapping>
